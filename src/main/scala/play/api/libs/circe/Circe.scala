@@ -28,7 +28,7 @@ trait Circe extends Status {
     ContentTypeOf(Some(ContentTypes.JSON))
   }
 
-  implicit def writableOf_Json(implicit codec: Codec, printer: Printer = defaultPrinter): Writeable[Json] = {
+  implicit def writableOf_Json(implicit codec: play.api.mvc.Codec, printer: Printer = defaultPrinter): Writeable[Json] = {
     Writeable(a => codec.encode(a.pretty(printer)))
   }
 
